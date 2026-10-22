@@ -39,6 +39,31 @@
  .inlineInfo{margin-top:-9px;margin-bottom:9px}
  .budgetpanel{margin-top:15px}
 }
+
+/* Fix iOS: prevent expanded itinerary cards from widening the document. */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+.shell,.layout,.main,.side,.timeline,.spot,.spotCopy,.inlineInfo,.inlineInfo p,.miniFacts,.miniFacts>div{min-width:0;max-width:100%}
+.timeline{grid-template-columns:minmax(0,1fr)}
+.spot{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.spotCopy,.inlineInfo,.miniFacts>div{overflow-wrap:anywhere}
+.inlineInfo{width:100%;overflow:hidden}
+.inlineInfo .miniFacts{width:100%;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.inlineInfo .miniFacts div{min-width:0}
+.inlineInfo .inlinePhotos{width:100%;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+.inlineInfo .inlinePhotos img{flex:0 0 44%;width:44%;min-width:0;max-width:190px}
+.inlineInfo a{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:860px){.timeline{width:100%}.spot,.inlineInfo{justify-self:stretch}.inlineInfo p{font-size:14px}.inlineInfo .miniFacts{gap:7px}.inlineInfo .miniFacts div{padding:9px 7px}}
+/* Safari iOS: stop automatic text inflation when accordion content changes. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body,button,input,select,textarea{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media(max-width:860px){
+ html,body{overflow-x:hidden!important}
+ .shell,.layout,.main,.timeline,.spot,.inlineInfo{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
+ .inlineInfo{contain:inline-size;overflow:hidden}
+ .inlineInfo p,.inlineInfo span,.inlineInfo strong,.spotCopy{font-size-adjust:none;overflow-wrap:break-word;word-break:normal}
+ .inlineInfo .miniFacts,.inlineInfo .inlinePhotos{max-width:100%;min-width:0}
+ .inlineInfo .inlinePhotos img{flex:0 0 43%;max-width:43%;min-width:0}
+}
 </style></head><body><header class="top"><div class="eyebrow">Travel planner / febbraio 2027</div><h1>Islanda, giorno per giorno.</h1><p>Dal 17 al 25 febbraio · 7 amici · un road trip tra cascate ghiacciate, sabbia nera, grotte azzurre e terme.</p><div class="pillbar"><span class="pill">8 notti</span><span class="pill">25 tappe e trasferimenti</span><span class="pill">9 giornate</span><span class="pill">Aurora boreale ✦</span></div><div class="sharebar"><button type="button" id="shareTrip">↗ Condividi il viaggio</button><a href="#days">📅 Esplora i giorni</a><span id="shareResult" role="status"></span></div></header><div class="shell"><nav class="days" id="days" aria-label="Scegli il giorno"></nav><div class="layout"><section class="main"><div class="overview"><div class="overline" id="daynumber">GIORNO 1 · MERCOLEDÌ 17 FEBBRAIO</div><h2 id="daytitle">Atterraggio & prima sera</h2><p class="desc" id="daydesc"></p><div class="totals"><div class="total"><span>🚗 Guida totale</span><b id="totaldrive"></b></div><div class="total"><span>🥾 A piedi / attività</span><b id="totalwalk"></b></div><div class="total"><span>⚡ Ritmo</span><b id="pacing"></b></div></div></div>
 <div class="mobileMapSlot" id="mobileMapSlot"></div><div class="budgetpanel"><h3>🎟️ Attività a pagamento · per persona</h3><div class="budgetMain" id="budgetTotal">—</div><div class="budgetBreak" id="budgetDetail">Solo attività guidate e ingressi opzionali.</div><div class="budgetControls">Solo esperienze, senza alloggi, cibo e trasporti · <label>Mostra: <select id="budgetMode"><option value="person">a persona</option><option value="group">gruppo di 7</option></select></label></div></div>
 <div class="aurorabox"><div class="auroratop"><h3>🌌 Piano aurora · <span id="auroraNight">stasera</span></h3><p id="auroraToday">Come sfruttare questa notte per cercare l'aurora.</p><button type="button" class="auroraExpand" id="auroraToggle" aria-expanded="false">Come funziona l’aurora? ↓</button></div><div class="auroraDetail" id="auroraDetail" hidden><p><b>Come nasce:</b> particelle provenienti dal Sole interagiscono con il campo magnetico terrestre e con i gas dell’atmosfera, creando tende di luce verde, rosa e viola.</p><ol><li><b>Guardate le nuvole prima di tutto.</b> Nella mappa meteo ufficiale <b>bianco = sereno</b> e <b>verde = nuvoloso</b>. Una serata con un po' di cielo aperto vale più di una previsione di forte attività sotto le nuvole.</li><li><b>Osservate dopo cena.</b> Indicativamente tra le <b>21:00 e le 01:00</b>, senza fissarsi su un orario: può comparire anche prima o dopo.</li><li><b>Restate fuori dalle luci.</b> Le case di campagna tra Hella, Vík e Hof sono ottime basi. Se il cielo è limpido, a volte basta uscire sul terrazzo dell'alloggio.</li><li><b>Controllate l'attività.</b> Il valore Kp da solo non garantisce nulla: serve un cielo sufficientemente limpido e un po' di fortuna.</li><li><b>Quando esce:</b> può iniziare come un arco biancastro e poi accendersi all’improvviso. La fotocamera spesso registra più colore di quello visibile a occhio nudo.</li></ol><p><a href="https://en.vedur.is/weather/forecasts/aurora/" target="_blank" rel="noopener">Previsione ufficiale nuvole e aurora ↗</a> · <a href="https://www.visiticeland.com/the-auroras/" target="_blank" rel="noopener">Guida Visit Iceland ↗</a></p><p><b>Il piano per voi:</b> 7–8 tentativi leggeri, senza escursioni obbligatorie. Se le nuvole coprono il cielo, si cena e si dorme. Se è sereno, si esce per 30–90 minuti.</p></div></div>
